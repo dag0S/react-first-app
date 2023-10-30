@@ -1,6 +1,7 @@
 import Costs from "./components/Costs/Costs";
+// import React from "react";
 
-function App() {
+const App = () => {
   const cost = [
     {
       date: new Date(2021, 2, 12),
@@ -19,12 +20,19 @@ function App() {
     },
   ];
 
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h1", {}, "Начнем изучение React"),
+  //   React.createElement(Costs, { cost: cost })
+  // );
+
   return (
     <div>
       <h1>Начнем изучение React</h1>
-      <Costs cost={cost}/>
+      <Costs cost={cost} />
     </div>
   );
-}
+};
 
 export default App;

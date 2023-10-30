@@ -1,9 +1,10 @@
 import "./Costs.css";
 import CostItem from "../CostItem/CostItem";
+import Card from "../Card/Card";
 
-function Costs({ cost }) {
+const Costs = ({ cost }) => {
   return (
-    <div className="costs">
+    <Card className="costs">
       <CostItem
         date={cost[0].date}
         description={cost[0].description}
@@ -19,8 +20,8 @@ function Costs({ cost }) {
         description={cost[2].description}
         amount={cost[2].amout}
       />
-    </div>
+    </Card>
   );
-}
+};
 
 export default Costs;
