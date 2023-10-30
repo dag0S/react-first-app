@@ -1,35 +1,36 @@
-import Costs from "./components/Costs/Costs";
-// import React from "react";
+import Costs from './components/Costs/Costs';
+import NewCost from './components/NewCost/NewCost';
 
 const App = () => {
   const cost = [
     {
+      id: 'c1',
       date: new Date(2021, 2, 12),
-      description: "Холодильник",
+      description: 'Холодильник',
       amout: 999.99,
     },
     {
+      id: 'c2',
       date: new Date(2021, 11, 25),
-      description: "MacBook",
+      description: 'MacBook',
       amout: 2499.99,
     },
     {
+      id: 'c3',
       date: new Date(2021, 4, 1),
-      description: "Шорты",
+      description: 'Шорты',
       amout: 10.89,
     },
   ];
 
-  // return React.createElement(
-  //   "div",
-  //   {},
-  //   React.createElement("h1", {}, "Начнем изучение React"),
-  //   React.createElement(Costs, { cost: cost })
-  // );
+  const addCostHandler = (cost) => {
+    console.log(cost),
+    console.log('app component')
+  }
 
   return (
     <div>
-      <h1>Начнем изучение React</h1>
+      <NewCost onAddCost={addCostHandler} />
       <Costs cost={cost} />
     </div>
   );
