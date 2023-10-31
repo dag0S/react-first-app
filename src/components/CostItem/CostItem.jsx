@@ -1,8 +1,8 @@
-import Card from "../Card/Card";
-import CostDate from "../CostDate/CostDate";
-import "./CostItem.css";
+import Card from '../Card/Card';
+import CostDate from '../CostDate/CostDate';
+import './CostItem.css';
 
-const CostItem = (props) => {
+const CostItem = props => {
   return (
     <Card className="cost-item">
       <CostDate date={props.date} />

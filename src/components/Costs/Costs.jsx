@@ -1,25 +1,29 @@
-import "./Costs.css";
-import CostItem from "../CostItem/CostItem";
-import Card from "../Card/Card";
+import './Costs.css';
+import CostItem from '../CostItem/CostItem';
+import Card from '../Card/Card';
+import CostsFilter from '../CostsFilter/CostsFilter';
+import { useState } from 'react';
 
-const Costs = ({ cost }) => {
+const Costs = ({ costs }) => {
+  const [selectedYear, setSelectedYear] = useState('2023');
+
+  const yearChangeHandler = year => {
+    setSelectedYear(year);
+  };
+
   return (
     <Card className="costs">
-      <CostItem
-        date={cost[0].date}
-        description={cost[0].description}
-        amount={cost[0].amout}
-      />
-      <CostItem
-        date={cost[1].date}
-        description={cost[1].description}
-        amount={cost[1].amout}
-      />
-      <CostItem
-        date={cost[2].date}
-        description={cost[2].description}
-        amount={cost[2].amout}
-      />
+      <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
+      {costs
+        .filter(cost => cost.date.getFullYear().toString() === selectedYear)
+        .map(cost => (
+          <CostItem
+            date={cost.date}
+            description={cost.description}
+            amount={cost.amount}
+            key={cost.id}
+          />
+        ))}
     </Card>
   );
 };

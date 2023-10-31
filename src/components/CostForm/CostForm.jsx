@@ -22,7 +22,7 @@ const CostForm = ({ onSaveCostData }) => {
     event.preventDefault();
 
     const costDate = {
-      name: inputName,
+      description: inputName,
       amount: inputAmount,
       date: new Date(inputDate),
     };
@@ -63,7 +63,7 @@ const CostForm = ({ onSaveCostData }) => {
             id="date"
             value={inputDate}
             onChange={dateChangeHandler}
-            min="2023-01-01"
+            min="2019-01-01"
             step="2023-12-31"
           />
         </div>
