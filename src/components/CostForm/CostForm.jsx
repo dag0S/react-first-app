@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CostForm.css';
 
-const CostForm = ({ onSaveCostData }) => {
+const CostForm = ({ onSaveCostData, onCloseForm }) => {
   const [inputName, setInputName] = useState('');
   const [inputAmount, setInputAmount] = useState('');
   const [inputDate, setInputDate] = useState('');
@@ -31,6 +31,8 @@ const CostForm = ({ onSaveCostData }) => {
     setInputName('');
     setInputAmount('');
     setInputDate('');
+
+    onCloseForm();
   };
 
   return (
@@ -69,6 +71,7 @@ const CostForm = ({ onSaveCostData }) => {
         </div>
         <div className="new-cost__actions">
           <button type="submit">Добавить расход</button>
+          <button onClick={onCloseForm}>Отмена</button>
         </div>
       </div>
     </form>
